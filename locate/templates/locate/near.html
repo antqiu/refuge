@@ -1,0 +1,9 @@
+{% extends "locate/layout.html" %} {% load static %} {% block script %}
+<link href="{% static 'locate/styles.css' %}" rel="stylesheet" />
+<script src="{% static 'locate/script.js' %}"></script>
+{% endblock %} {% block body %}
+
+<h2 id="heading">Displaying Restrooms Near You</h2>
+<hr />
+<div id="restrooms"></div>
+{% endblock %}

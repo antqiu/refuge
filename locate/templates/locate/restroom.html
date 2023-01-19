@@ -1,0 +1,64 @@
+{% extends "locate/layout.html" %} {% load static %} {% block script %}
+<link href="{% static 'locate/styles.css' %}" rel="stylesheet" />
+<script src="{% static 'locate/map.js' %}"></script>
+<script>
+	const lat = Number("{{ latitude }}")
+	const lng = Number("{{ longitude }}")
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById("map"), {
+			center: { lat: lat, lng: lng },
+			scrollwheel: true,
+			zoom: 16,
+		})
+	}
+</script>
+<script
+	async
+	defer
+	src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
+></script>
+{% endblock %} {% block body %}
+
+<h2 id="heading">{{ restroom_name }}</h2>
+<hr>
+
+<h2 hidden id="restroom_id">{{ restroom_id }}</h2>
+<h2 hidden id="latitude">{{ latitude }}</h2>
+<h2 hidden id="longitude">{{ longitude }}</h2>
+
+<div id="restroom"></div>
+
+<h3 id="heading">Directions</h3>
+<div>
+	<div id="map" style="width: 1000px; height: 400px"></div>
+</div>
+
+<br>
+
+<h3 id="heading">Comments</h3>
+{% if user.is_authenticated %}
+	<form action="/restrooms/{{restroom_id}}" method="POST">
+		<div class="form-group">
+		{% csrf_token %}
+		<input class="form-control" type="text" name="comment" />
+		<div style="text-align: center;">
+		<input class="button col-3" type="submit" />
+	</div>
+	</div>
+	</form>
+{% else %}
+<p style="text-align: center;">Please login to comment</p>
+	{% endif %}
+</div>
+	<div id="comments"></div>
+
+	{% for comment in comments reversed %}
+	<div style="text-align: center;" class="comment">
+		<p><strong>{{ comment.user }}</strong></p>
+		<p>{{ comment.content }}</p>
+		<p>{{ comment.time }}</p>
+		<hr>
+	</div>
+{% endfor %}
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends "locate/layout.html" %} {% load static %} {% block script %}
+<link href="{% static 'locate/styles.css' %}" rel="stylesheet" />
+<script src="{% static 'locate/search.js' %}"></script>
+<style>
+	input[type="text"] {
+		text-align: center;
+	}
+</style>
+{% endblock %} {% block body %}
+
+<h2 id="heading">Search For Bathrooms With Zip Code</h2>
+<hr />
+
+<form>
+	<div class="form-group">
+		<input
+			class="form-control"
+			type="text"
+			id="zipCode"
+			name="search"
+			placeholder="Zip Code"
+		/>
+		<div style="text-align: center">
+			<input
+				id="submit-button"
+				class="button col-3"
+				type="submit"
+				value="Search"
+			/>
+		</div>
+	</div>
+</form>
+
+<div id="restrooms_search"></div>
+
+{% endblock %}

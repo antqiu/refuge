@@ -1,0 +1,48 @@
+{% extends "locate/layout.html" %} {% load static %} {% block style %}
+<link href="{% static 'locate/landing.css' %}" rel="stylesheet" />
+{% endblock %}{% block body %}
+<!--
+<div class="container">
+	 <img class="image" src="media/cover.png" />
+</div>
+ -->
+
+<section id="main">
+	<div class="page-content">
+		<div class="container">
+			<h1>Refuge</h1>
+			<hr></hr>
+			<div>
+				<p class="row">
+					This project aims to create a safe and inclusive environment for all
+					individuals by providing a directory of restrooms that are verified to
+					be safe and accessible for trans and non-binary individuals.
+				</p>
+				<p class="row">
+					This website is easy to use and allows users to search for restrooms
+					based on location and zip code, and users can also comment on existing
+					restrooms.
+				</p>
+				<p class="row">
+					I hope that this service will help to promote inclusion and
+					accessibility in public spaces, and make it easier for everyone to
+					find safe and comfortable restrooms when they need them.
+				</p>
+			</div>
+		</div>
+		{% if user.is_authenticated %}
+		<a href="/near">Get Started</a>
+		{% else %}
+		<a href="/near">Get Started</a>
+		<a href="/register">Register</a>
+		{% endif %}
+	</div>
+</section>
+
+<!--
+<hr />
+<h2>Read About This Project</h2>
+<p>Technologies used</p>
+<p>cs50 web</p>
+ -->
+{% endblock %}
