@@ -23,13 +23,14 @@ Lastly, as for the DJango Models, I implemented both a User and a Comment featur
 1. Download and unzip
 2. Open terminal
 3. Enter the Refuge directory
-
-Note: 
-a) Input your own API Key in line 7 of search.js
-b) Input your own API Key in line 18 of restroom.html
-
 4. Run "python manage.py runserver"
 5. Press Control + C to exit
+
+Note: 
+
+a) Input your own API Key in line 7 of search.js
+
+b) Input your own API Key in line 18 of restroom.html
 
 ### Files Description
 
