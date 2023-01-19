@@ -24,9 +24,9 @@ Lastly, as for the DJango Models, I implemented both a User and a Comment featur
 2. Open terminal
 3. Enter the Refuge directory
 
-Note: If it's your first time running, you may have to migrate the models
-a) Run "python manage.py makemigrations"
-b) Run "python manage.py migrate"
+Note: 
+a) Input your own API Key in line 7 of search.js
+b) Input your own API Key in line 18 of restroom.html
 
 4. Run "python manage.py runserver"
 5. Press Control + C to exit
